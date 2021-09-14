@@ -1,0 +1,10 @@
+{
+  "name": "try-neon",
+  "private": true,
+  "scripts": {
+    "build": "pnpm run --recursive build",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "mojahige (Yu Nozato)",
+  "license": "ISC"
+}
