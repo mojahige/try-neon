@@ -1,0 +1,20 @@
+[package]
+name = "system-info"
+version = "1.0.0"
+authors = ["mojahige (Yu Nozato)"]
+license = "ISC"
+edition = "2018"
+exclude = ["index.node"]
+
+[lib]
+crate-type = ["cdylib"]
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+sys-info = "0.9"
+
+[dependencies.neon]
+version = "0.9"
+default-features = false
+features = ["napi-6"]

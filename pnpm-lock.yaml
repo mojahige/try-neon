@@ -11,6 +11,12 @@ importers:
     devDependencies:
       cargo-cp-artifact: 0.1.5
 
+  packages/system-info:
+    specifiers:
+      cargo-cp-artifact: ^0.1
+    devDependencies:
+      cargo-cp-artifact: 0.1.5
+
 packages:
 
   /cargo-cp-artifact/0.1.5:
