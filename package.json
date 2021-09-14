@@ -3,6 +3,7 @@
   "private": true,
   "scripts": {
     "build": "pnpm run --recursive build",
+    "fmt": "pnpm run --recursive fmt",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "mojahige (Yu Nozato)",
