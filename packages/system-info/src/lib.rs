@@ -50,6 +50,17 @@ fn get_host_name() -> String {
     }
 }
 
+fn get_load_average() -> sys_info::LoadAvg {
+    match sys_info::loadavg() {
+        Ok(info) => info,
+        Err(_) => sys_info::LoadAvg {
+            one: 0.0,
+            five: 0.0,
+            fifteen: 0.0,
+        },
+    }
+}
+
 fn get_system_info(mut cx: FunctionContext) -> JsResult<JsObject> {
     let info = cx.empty_object();
     let cpu = cx.empty_object();
@@ -64,6 +75,11 @@ fn get_system_info(mut cx: FunctionContext) -> JsResult<JsObject> {
     let memory_info = get_mem_info();
     let memory_total = cx.number(memory_info.total as f64);
     let memory_free = cx.number(memory_info.free as f64);
+    let load = cx.empty_object();
+    let load_average = get_load_average();
+    let load_average_one = cx.number(load_average.one);
+    let load_average_five = cx.number(load_average.five);
+    let load_average_fifteen = cx.number(load_average.fifteen);
 
     cpu.set(&mut cx, "quantity", cpu_quantity)?;
     cpu.set(&mut cx, "speed", cpu_speed)?;
@@ -80,6 +96,7 @@ fn get_system_info(mut cx: FunctionContext) -> JsResult<JsObject> {
     info.set(&mut cx, "os", os)?;
     info.set(&mut cx, "host", host)?;
     info.set(&mut cx, "memory", memory)?;
+    info.set(&mut cx, "load", load)?;
 
     Ok(info)
 }
