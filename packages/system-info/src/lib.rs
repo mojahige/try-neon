@@ -17,7 +17,7 @@ fn get_cpu_speed() -> u64 {
 fn get_os_type() -> String {
     match sys_info::os_type() {
         Ok(os_type) => os_type,
-        Err(_) => String::from("")
+        Err(_) => String::from(""),
     }
 }
 
@@ -43,5 +43,6 @@ fn get_system_info(mut cx: FunctionContext) -> JsResult<JsObject> {
 #[neon::main]
 fn main(mut cx: ModuleContext) -> NeonResult<()> {
     cx.export_function("get", get_system_info)?;
+
     Ok(())
 }
