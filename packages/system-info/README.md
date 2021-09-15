@@ -2,9 +2,9 @@
 
 This project was bootstrapped by [create-neon](https://www.npmjs.com/package/create-neon).
 
-## Installing memory-count
+## Installing system-info
 
-Installing memory-count requires a [supported version of Node and Rust](https://github.com/neon-bindings/neon#platform-support).
+Installing system-info requires a [supported version of Node and Rust](https://github.com/neon-bindings/neon#platform-support).
 
 You can install the project with npm. In the project directory, run:
 
@@ -14,7 +14,7 @@ $ npm install
 
 This fully installs the project, including installing any dependencies and running the build.
 
-## Building memory-count
+## Building system-info
 
 If you have already installed the project and only want to run the build, run:
 
@@ -24,15 +24,15 @@ $ npm run build
 
 This command uses the [cargo-cp-artifact](https://github.com/neon-bindings/cargo-cp-artifact) utility to run the Rust build and copy the built library into `./index.node`.
 
-## Exploring memory-count
+## Exploring system-info
 
-After building memory-count, you can explore its exports at the Node REPL:
+After building system-info, you can explore its exports at the Node REPL:
 
 ```sh
 $ npm install
 $ node
-> require('.').hello()
-"hello node"
+> require('.').get()
+{ cpu: { quantity: 8, speed: 2300 }, os: { type: 'Darwin' } }
 ```
 
 ## Available Scripts
@@ -70,7 +70,7 @@ Runs the unit tests by calling `cargo test`. You can learn more about [adding te
 The directory structure of this project is:
 
 ```
-memory-count/
+system-info/
 ├── Cargo.toml
 ├── README.md
 ├── index.node
